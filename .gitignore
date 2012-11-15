@@ -8,3 +8,5 @@ nbproject
 /.gvimrc
 /.vim*
 .rvmrc
+Gemfile.lock
+*~

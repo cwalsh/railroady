@@ -43,6 +43,12 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
   s.summary = "Ruby on Rails 3 model and controller UML class diagram generator."
+  s.add_runtime_dependency 'rake'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rails'
+  s.add_development_dependency 'rdoc'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'jeweler'
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
