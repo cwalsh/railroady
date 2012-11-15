@@ -109,7 +109,7 @@ class DiagramGraph
   def dot_edge(type, from, to, name = '')
     options =  name != '' ? "label=\"#{name}\", " : ''
     edge_color = '"#%02X%02X%02X"' % [rand(255), rand(255), rand(255)]
-    suffix = ", dir=both color=#{edge_color}"
+    suffix = ", dir=both, color=#{edge_color}"
     case type
       when 'one-one'
            options += "arrowtail=odot, arrowhead=dot" + suffix

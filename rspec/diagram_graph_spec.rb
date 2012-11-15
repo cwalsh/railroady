@@ -3,19 +3,20 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 module CustomDotMatchers
   class HaveDotOptions
     def initialize(expected)
-      @expected = expected
+      @expected = expected.split(',').map(&:strip)
     end
     def matches?(target)
       @target = target
       return false unless @target =~ /\[(.*)\]/
       @options = $1
-      @options == @expected
+      # @options should contain everything in @expected, possibly more
+      @options.split(',').map(&:strip) & @expected == @expected
     end
     def failure_message
-      "expected '#{@target.strip}' to have options '[#{@expected}]'"
+      "expected '#{@target.strip}' to have options '[#{@expected.join(", ")}]'"
     end
     def negative_failure_message
-      "expected '#{@target.strip}' to not have options '[#{@expected}]'"
+      "expected '#{@target.strip}' to not have options '[#{@expected.join(", ")}]'"
     end
     def description
       "have dot options"
